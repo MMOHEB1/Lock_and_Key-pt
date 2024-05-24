@@ -11,18 +11,18 @@ def save():
     email1 = email_input.get()
     pswrd1 = pswrd_input.get()
 
-    oops = messagebox.showinfo(title="OOP", message="Please do not leave any fields empty")
+    if len(website1) != 0 or len(pswrd1) != 0:
+        messagebox.showinfo(title="OOP", message="Please do not leave any fields empty")
+
     is_ok = messagebox.askokcancel(title=website1, message=f"These are the details entered: \nEmail: {email1}"
                                                            f"\nPassword: {pswrd1} \nIs it ok to save?")
 
-    if len(website1) == 0 or len(pswrd1) == 0:
-        oops
-    elif is_ok:
+
+    if is_ok:
         with open("data.txt", "a") as security_file:
             security_file.write(f"\n {website1} | {email1} | {pswrd1}\n")
             website_input.delete(0, END)
             pswrd_input.delete(0, END)
-
 
 
 
