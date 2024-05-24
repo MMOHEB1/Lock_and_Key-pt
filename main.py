@@ -11,7 +11,7 @@ def save():
     email1 = email_input.get()
     pswrd1 = pswrd_input.get()
 
-    if len(website1) != 0 or len(pswrd1) != 0:
+    if len(website1) == 0 or len(pswrd1) == 0:
         messagebox.showinfo(title="OOP", message="Please do not leave any fields empty")
 
     is_ok = messagebox.askokcancel(title=website1, message=f"These are the details entered: \nEmail: {email1}"
