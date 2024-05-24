@@ -1,17 +1,10 @@
 from tkinter import *
+from tkinter import messagebox
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-
-# GENERATE FILE:
-#     ADD WEBSITE,USERNAME, PASSWORD TO FILE
-
-# def new_file(web_name, username, password):
-#     with open("data.txt", "x") as security_file:
-#         security_file.write(f"\n {web_name} | {username} | {password}")
-#     print(security_file)
 
 def save():
 
@@ -19,15 +12,12 @@ def save():
     email1 = email_input.get()
     pswrd1 = pswrd_input.get()
 
+    messagebox.showinfo(title="title, message="hello")
+
     with open("data.txt", "a") as security_file:
         security_file.write(f"\n {website1} | {email1} | {pswrd1}\n")
         website_input.delete(0, END)
         pswrd_input.delete(0, END)
-
-# def same_file(web_name, username, password):
-#     with open("data.txt", "a") as security_file:
-#         security_file.write(f"\n {web_name} | {username} | {password}")
-#     print(security_file.read())
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -69,16 +59,9 @@ pswrd_input.grid(column=1, row=3, sticky='nsew')
 generate_pswrd = Button(text="Generate Password")
 generate_pswrd.grid(column=2, row=3)
 
-# def new_file():
-#     with open("data.txt", "x") as security_file:
-#         security_file.write(f"\n {website_input.get()} | {email_input.get()} | {pswrd_input.get()}")
-#     print(security_file.read())
-
+# button_perss:
 add = Button(text="Add", command=save)
 add.grid(column=0, row=4, columnspan=3, sticky='nsew')
-
-# button_perss:
-
 
 
 
