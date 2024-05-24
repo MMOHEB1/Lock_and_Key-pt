@@ -7,17 +7,18 @@ from tkinter import messagebox
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
-
     website1 = website_input.get()
     email1 = email_input.get()
     pswrd1 = pswrd_input.get()
 
-    messagebox.showinfo(title="title, message="hello")
+    is_ok = messagebox.askokcancel(title=website1, message=f"These are the details entered: \nEmail: {email1}"
+                                                           f"\nPassword: {pswrd1} \nIs it ok to save?")
 
     with open("data.txt", "a") as security_file:
         security_file.write(f"\n {website1} | {email1} | {pswrd1}\n")
         website_input.delete(0, END)
         pswrd_input.delete(0, END)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -29,7 +30,6 @@ img_file = PhotoImage(file="logo.png")
 canvas = Canvas(width=200, height=200, highlightthickness=0)
 canvas.create_image(100, 100, image=img_file)
 canvas.grid(column=1, row=0)
-
 
 # Website label:
 website = Label(text="Website:")
@@ -55,18 +55,11 @@ pswrd_input = Entry(window)
 pswrd_input.grid(column=1, row=3, sticky='nsew')
 
 # Buttons:
-
 generate_pswrd = Button(text="Generate Password")
 generate_pswrd.grid(column=2, row=3)
 
 # button_perss:
 add = Button(text="Add", command=save)
 add.grid(column=0, row=4, columnspan=3, sticky='nsew')
-
-
-
-
-
-
 
 window.mainloop()
