@@ -54,7 +54,7 @@ def save():
             with open("data.json", "w") as security_file:
                 # Dumping/saving data into data file
                 json.dump(data, security_file, indent=4)
-
+        finally:
             # deletes the inputs of the website and password once add is clicked
             website_input.delete(0, END)
             pswrd_input.delete(0, END)
