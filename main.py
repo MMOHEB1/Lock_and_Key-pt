@@ -40,15 +40,20 @@ def save():
     if len(website1) == 0 or len(pswrd1) == 0:
         messagebox.showinfo(title="OOP", message="Please do not leave any fields empty")
     else:
-        with open("data.json", "r") as security_file:
-            # Reading old data
-            data = json.load(security_file)
+        try:
+            with open("data.json", "r") as security_file:
+                # Reading old data
+                data = json.load(security_file)
+        except FileNotFoundError:
+            with open("data.json", "w") as security_file:
+                json.dump(new_data, security_file, indent=4)
+        else:
             # Updating old data with new data
             data.update(new_data)
 
-        with open("data.json", "w") as security_file:
-            # Dumping/saving data into data file
-            json.dump(data, security_file, indent=4)
+            with open("data.json", "w") as security_file:
+                # Dumping/saving data into data file
+                json.dump(data, security_file, indent=4)
 
             # deletes the inputs of the website and password once add is clicked
             website_input.delete(0, END)
