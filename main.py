@@ -76,7 +76,7 @@ website = Label(text="Website:")
 website.grid(column=0, row=1)
 
 website_input = Entry(window)
-website_input.grid(column=1, row=1, columnspan=2, sticky='nsew')
+website_input.grid(column=1, row=1)
 website_input.focus()
 
 # Email label:
@@ -98,7 +98,10 @@ pswrd_input.grid(column=1, row=3, sticky='nsew')
 generate_pswrd = Button(text="Generate Password", command=generate_password)
 generate_pswrd.grid(column=2, row=3)
 
+search = Button(text="Search")
+search.grid(column=2, row=1, sticky='ew')
+
 add = Button(text="Add", command=save)
-add.grid(column=0, row=4, columnspan=3, sticky='nsew')
+add.grid(column=1, row=4, columnspan=3, sticky='nsew')
 
 window.mainloop()
